@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thought Forge — Workspace</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-gradient" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="topbar card">
+        <div>
+          <p class="eyebrow">Thought Forge</p>
+          <h1>Assistant de pensée opérationnelle</h1>
+        </div>
+        <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Changer de thème">
+          🌙 Thème
+        </button>
+      </header>
+
+      <section class="panel-grid">
+        <article class="card input-card fade-in">
+          <h2>Nouveau cycle A → B → C</h2>
+          <p class="muted">Décris ton besoin, puis lance l’analyse.</p>
+
+          <label for="prompt">Contexte / problème</label>
+          <textarea id="prompt" rows="6" placeholder="Ex: Je veux créer un plan de lancement produit avec contraintes budget et délai."></textarea>
+
+          <div class="actions">
+            <button id="runBtn" class="btn btn-primary" type="button">Lancer l’analyse</button>
+            <button id="clearBtn" class="btn btn-ghost" type="button">Réinitialiser</button>
+          </div>
+        </article>
+
+        <article class="card output-card fade-in delay-1">
+          <h2>Résultat</h2>
+          <div id="status" class="status idle">En attente</div>
+          <div id="output" class="output" aria-live="polite">
+            <p class="placeholder">Aucun résultat pour le moment.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="card fade-in delay-2">
+        <h2>Historique local</h2>
+        <ul id="history" class="history-list"></ul>
+      </section>
+    </main>
+
+    <template id="historyItemTemplate">
+      <li class="history-item">
+        <button class="history-btn" type="button"></button>
+      </li>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
